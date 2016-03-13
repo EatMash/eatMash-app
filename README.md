@@ -1,20 +1,21 @@
 # EatMash App
-
 ## Install Ionic
 ```bash
 $ sudo npm install -g cordova ionic
 ```
-
 ## Setup
-install npm packages
+Install npm packages
 ```bash
 $ npm install
 ```
-install bower packages
+Install bower packages
 ```bash
 $ bower install
 ```
-
+Install Android build set
+```bash
+$ ionic platform add android
+```
 ## Run
 Run on web for development
 ```bash
