@@ -16,6 +16,11 @@ $ bower install
 ```
 
 ## Run
+Run on web for development
 ```bash
 $ ionic serve --lab
+```
+Run on android emulator (Need to install AVD beforehand)
+```bash
+$ ionic run android
 ```
