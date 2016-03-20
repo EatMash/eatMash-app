@@ -7,7 +7,7 @@
 
     mashup: {
       templateUrl: 'templates/tab-mashup.html',
-      controller: 'DashCtrl'
+      controller: 'MashupCtrl'
     },
 
     restaurantDetail: {
