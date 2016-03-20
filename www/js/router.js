@@ -1,21 +1,29 @@
 (function() {
   var views = {
-    tabFavourite: {
+    favourite: {
       templateUrl: 'templates/tab-favourite.html',
       controller: 'FavouriteCtrl'
-    },
-    tabRestaurantDetail: {
-      templateUrl: 'templates/restaurant-detail.html',
-      controller: 'RestaurantDetailCtrl'
     },
 
     mashup: {
       templateUrl: 'templates/tab-mashup.html',
       controller: 'DashCtrl'
-     }
+    },
+
+    restaurantDetail: {
+      templateUrl: 'templates/restaurant-detail.html',
+      controller: 'RestaurantDetailCtrl'
+    }
   };
 
   var routingProvider = function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('entrance', {
+        url: '/',
+        templateUrl: 'templates/entrance.html',
+        controller: 'EntranceController'
+      });
+
     $stateProvider
       .state('tab', {
         url: '/tab',
@@ -28,13 +36,10 @@
       })
       .state('tab.favourite', {
         url: '/favourite',
-        views: { 'tab-favourite': views.tabFavourite }
-      })
-      .state('tab.restaurant-detail', {
-        url: '/restaurants/:id',
-        views: { 'restaurant-detail': views.tabRestaurantDetail }
+        views: { 'tab-favourite': views.favourite }
       });
-    $urlRouterProvider.otherwise('/tab/mashup');
+
+    $urlRouterProvider.otherwise('/');
   };
 
   angular.module('starter').config(routingProvider);
