@@ -21,3 +21,30 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+.center-components {
+  text-align: center;
+  height: 100%;
+
+  .text-component {
+    position: relative;
+    top: 30%;
+  }
+
+  .button-component {
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+  }
+
+  .center-button {
+    margin: 10px;
+  }
+
+  .mashup-button > button {
+    width: 60%;
+  }
+
+  .how-button > button {
+    width: 60%;
+  }
+}

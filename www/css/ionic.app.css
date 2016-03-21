@@ -9730,3 +9730,20 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.center-components {
+  text-align: center;
+  height: 100%; }
+  .center-components .text-component {
+    position: relative;
+    top: 30%; }
+  .center-components .button-component {
+    position: absolute;
+    width: 100%;
+    bottom: 60px; }
+  .center-components .center-button {
+    margin: 10px; }
+  .center-components .mashup-button > button {
+    width: 60%; }
+  .center-components .how-button > button {
+    width: 60%; }
