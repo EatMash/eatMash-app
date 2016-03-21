@@ -3,12 +3,12 @@
     $scope,
     $state,
     $rootScope,
-    $window,
+    $document,
     $ionicPlatform
   ) {
-    $ionicPlatform.ready(function() {
+    $document.ready(function() {
       var mapRenderArea = $("#map");
-      console.log(mapRenderArea);
+      // TODO render Google map here
     });
 
     // Prevent trigger of history back
