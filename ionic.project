@@ -1,6 +1,6 @@
 {
   "name": "EatMash",
-  "app_id": "",
+  "app_id": "c26adeb1",
   "gulpStartupTasks": [
     "sass",
     "watch"
