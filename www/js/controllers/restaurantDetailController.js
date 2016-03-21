@@ -1,5 +1,8 @@
 (function() {
-  var restaurantDetailController = function($scope, $stateParams) {
+  var restaurantDetailController = function(
+    $scope,
+    $stateParams
+  ) {
 
     // Prevent trigger of history back
     $ionicPlatform.registerBackButtonAction(function() {

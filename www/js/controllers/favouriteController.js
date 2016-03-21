@@ -1,5 +1,9 @@
 (function() {
-  var favouriteController = function($scope, $state, $ionicPlatform) {
+  var favouriteController = function(
+    $scope,
+    $state,
+    $ionicPlatform
+  ) {
 
     // Prevent trigger of history back
     $ionicPlatform.registerBackButtonAction(function() {

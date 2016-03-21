@@ -1,5 +1,9 @@
 (function() {
-  var entranceController = function($state, $scope, $stateParams) {
+  var entranceController = function(
+    $state,
+    $scope,
+    $stateParams
+  ) {
     $scope.jumpToMashup = function() {
       $state.transitionTo("tab.mashup");
     };

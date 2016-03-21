@@ -1,5 +1,15 @@
 (function() {
-  var mashupController = function($scope, $state, $rootScope, $ionicPlatform) {
+  var mashupController = function(
+    $scope,
+    $state,
+    $rootScope,
+    $window,
+    $ionicPlatform
+  ) {
+    $ionicPlatform.ready(function() {
+      var mapRenderArea = $("#map");
+      console.log(mapRenderArea);
+    });
 
     // Prevent trigger of history back
     $ionicPlatform.registerBackButtonAction(function() {
