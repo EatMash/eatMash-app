@@ -4,6 +4,10 @@
       templateUrl: 'templates/tab-favourite.html',
       controller: 'FavouriteCtrl'
     },
+    feed: {
+      templateUrl: 'templates/tab-feed.html',
+      controller: 'FeedCtrl'
+    },
     mashup: {
       templateUrl: 'templates/tab-mashup.html',
       controller: 'MashupCtrl'
@@ -34,6 +38,10 @@
       .state('tab.mashup', {
         url: '/mashup',
         views: { 'tab-mashup': tabViews.mashup }
+      })
+      .state('tab.feed', {
+        url: '/feed',
+        views: { 'tab-feed': tabViews.feed }
       })
       .state('tab.favourite', {
         url: '/favourite',
