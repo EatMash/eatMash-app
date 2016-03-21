@@ -34,11 +34,35 @@ body {
   text-align: center;
   height: 100%;
 
+  .background-div {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+
+    &:after {
+      height: 100%;
+
+      content: "";
+      position: absolute;
+      background-image: url("../img/foods/lunch1.jpg");
+      background-size: cover;
+      opacity: 0.5;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
   .text-component {
-    position: relative;
+    position: absolute;
+    width: 100%;
     top: 30%;
+    color: white;
+    z-index: 10;
 
     h1 {
+      color: white;
       font-family: "Montserrat";
     }
   }
