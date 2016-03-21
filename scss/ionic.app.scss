@@ -30,12 +30,20 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   .tabs-top > .tabs {
     top: 5px;
   }
+
+  .has-tabs-top {
+    top: 55px;
+  }
 }
 
 @mixin ios-styles {
   .tabs {
     padding-top: 5px;
     height: 55px;
+  }
+
+  .has-tabs {
+    bottom: 55px;
   }
 }
 
