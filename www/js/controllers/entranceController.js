@@ -1,6 +1,12 @@
 (function() {
-  var entranceController = function($scope, $stateParams) {
-    // do something
+  var entranceController = function($state, $scope, $stateParams) {
+    $scope.jumpToMashup = function() {
+      $state.transitionTo("tab.mashup");
+    };
+
+    $scope.showHowtoPopup = function() {
+      console.log("Howto");
+    };
   };
 
   angular
