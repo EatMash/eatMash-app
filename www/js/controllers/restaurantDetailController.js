@@ -1,6 +1,10 @@
 (function() {
   var restaurantDetailController = function($scope, $stateParams) {
-    // Do something
+
+    // Prevent trigger of history back
+    $ionicPlatform.registerBackButtonAction(function() {
+      $state.transitionTo("tab.mashup");
+    }, 100);
   };
 
   angular
