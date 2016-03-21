@@ -2,15 +2,15 @@
   var tabViews = {
     favourite: {
       templateUrl: 'templates/tab-favourite.html',
-      controller: 'FavouriteCtrl'
+      controller: 'FavouriteController'
     },
     feed: {
       templateUrl: 'templates/tab-feed.html',
-      controller: 'FeedCtrl'
+      controller: 'FeedController'
     },
     mashup: {
       templateUrl: 'templates/tab-mashup.html',
-      controller: 'MashupCtrl'
+      controller: 'MashupController'
     }
   };
 
@@ -25,7 +25,7 @@
       .state('restaurant-detail', {
         url: '/restaurant/:id',
         templateUrl: 'templates/restaurant-detail.html',
-        controller: 'RestaurantDetailCtrl'
+        controller: 'RestaurantDetailController'
       });
 
     // Tabs

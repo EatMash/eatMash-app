@@ -13,5 +13,5 @@
 
   angular
     .module('starter.controllers')
-    .controller('FavouriteCtrl', favouriteController);
+    .controller('FavouriteController', favouriteController);
 })();

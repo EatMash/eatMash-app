@@ -19,5 +19,5 @@
 
   angular
     .module('starter.controllers')
-    .controller('MashupCtrl', mashupController);
+    .controller('MashupController', mashupController);
 })();

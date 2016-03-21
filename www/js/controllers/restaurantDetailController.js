@@ -12,5 +12,5 @@
 
   angular
     .module('starter.controllers')
-    .controller('RestaurantDetailCtrl', restaurantDetailController);
+    .controller('RestaurantDetailController', restaurantDetailController);
 })();

@@ -5,5 +5,5 @@
 
   angular
     .module('starter.controllers')
-    .controller('FeedCtrl', feedController);
+    .controller('FeedController', feedController);
 })();
