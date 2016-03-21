@@ -21,6 +21,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@font-face {
+  font-family: "Montserrat";
+  src: url(montserrat/Montserrat-Regular.otf);
+}
+
+body {
+  font-family: 'Montserrat', helvatica;
+}
+
 .center-components {
   text-align: center;
   height: 100%;
@@ -28,6 +37,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   .text-component {
     position: relative;
     top: 30%;
+
+    h1 {
+      font-family: "Montserrat";
+    }
   }
 
   .button-component {
@@ -38,6 +51,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
   .center-button {
     margin: 10px;
+
+    > button {
+      font-family: "Montserrat";
+    }
   }
 
   .mashup-button > button {
