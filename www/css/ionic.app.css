@@ -9737,6 +9737,11 @@ a.button {
 
 body {
   font-family: 'Montserrat', helvatica; }
+  body.platform-android .tabs-top > .tabs {
+    top: 5px; }
+  body.platform-ios .tabs {
+    padding-top: 5px;
+    height: 55px; }
 
 .center-components {
   text-align: center;
