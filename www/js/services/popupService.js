@@ -13,21 +13,21 @@
   var popupService = function($ionicPopup) {
     var howto = function() {
       return $ionicPopup.alert({
-        title: "How this work",
+        title: "<p><b>How this work</b></p>",
         template: HOW_THIS_WORK
       });
     };
 
     var geoError = function() {
       return $ionicPopup.alert({
-        title: "Error",
+        title: "<p><b>Error</b></p>",
         template: ERROR_TEXT
       });
     };
 
     var getNotFound = function() {
        return $ionicPopup.alert({
-        title: "Error",
+        title: "<p><b>Error</b></p>",
         template: GEO_NOT_FOUND
       });
     }
