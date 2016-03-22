@@ -9,7 +9,8 @@
   ) {
     $document.ready(function() {
       if (!navigator.geolocation) {
-        // Alert something to users
+        // TODO
+        // Notify users that this app cannot work
       }
 
       // Render GoogleMap
@@ -23,6 +24,7 @@
             }]
           }
         ],
+        center: { lat: -15, lng: 15 },
         disableDefaultUI: true,
         zoom: 14
       });
@@ -32,6 +34,8 @@
         var currentPosition =
           new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(currentPosition);
+      }, function(err) {
+        // TODO: Alert to urge users to turn on geolocation
       });
 
       // TODO: Render markers
