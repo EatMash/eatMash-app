@@ -59,6 +59,15 @@ body {
   }
 }
 
+ion-view {
+  ion-content {
+    #map {
+      width: 100%;
+      height: 50%;
+    }
+  }
+}
+
 .center-components {
   text-align: center;
   height: 100%;

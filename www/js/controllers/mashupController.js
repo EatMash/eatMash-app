@@ -7,8 +7,26 @@
     $ionicPlatform
   ) {
     $document.ready(function() {
-      var mapRenderArea = $("#map");
-      // TODO render Google map here
+      var mapRenderArea = $("#map").get(0);
+
+      // Render GoogleMap
+      $scope.map = new google.maps.Map(mapRenderArea, {
+        styles: [
+          {
+            featureType: "poi",
+            stylers: [{
+              visibility: "off"
+            }]
+          }
+        ],
+        center: { lat: -34, lng: 150 },
+        disableDefaultUI: true,
+        zoom: 8
+      });
+
+      //
+      // TODO: Render markers
+      //
     });
 
     // Prevent trigger of history back
