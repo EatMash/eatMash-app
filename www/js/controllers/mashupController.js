@@ -4,12 +4,16 @@
     $state,
     $rootScope,
     $ionicPlatform,
+    $document,
     apiService
   ) {
     $document.ready(function() {
-      var mapRenderArea = $("#map").get(0);
+      if (!navigator.geolocation) {
+        // Alert something to users
+      }
 
       // Render GoogleMap
+      var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {
         styles: [
           {
@@ -19,14 +23,18 @@
             }]
           }
         ],
-        center: { lat: -34, lng: 150 },
         disableDefaultUI: true,
-        zoom: 8
+        zoom: 14
       });
 
-      //
+      // Obtain GPS information
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        var currentPosition =
+          new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        $scope.map.setCenter(currentPosition);
+      });
+
       // TODO: Render markers
-      //
       console.log(apiService);
     });
 

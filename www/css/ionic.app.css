@@ -9749,7 +9749,8 @@ body {
 
 ion-view ion-content #map {
   width: 100%;
-  height: 50%; }
+  height: 50%;
+  background-color: gainsboro; }
 
 .center-components {
   text-align: center;
