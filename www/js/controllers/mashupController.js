@@ -4,16 +4,11 @@
     $state,
     $rootScope,
     $ionicPlatform,
+    $ionicPopup,
     $document,
     apiService
   ) {
-    $document.ready(function() {
-      if (!navigator.geolocation) {
-        // TODO
-        // Notify users that this app cannot work
-      }
-
-      // Render GoogleMap
+    var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {
         styles: [
@@ -28,18 +23,43 @@
         disableDefaultUI: true,
         zoom: 14
       });
+    };
 
-      // Obtain GPS information
+    var geoErrorPopup = function() {
+      var ERROR_TEXT =
+        "Failed to obtain geolocation data. "+
+        "Please check if the GPS is turned on";
+
+      $ionicPopup.alert({
+        title: "Error",
+        template: ERROR_TEXT
+      });
+    };
+
+    var obtainGeolocationData = function() {
       navigator.geolocation.getCurrentPosition(function(pos) {
         var currentPosition =
           new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(currentPosition);
       }, function(err) {
-        // TODO: Alert to urge users to turn on geolocation
+        geoErrorPopup();
+        console.log(err);
       });
+    };
+
+    $document.ready(function() {
+      if (!navigator.geolocation) {
+        // TODO
+        // Notify users that this app cannot work
+      }
+
+      // Render GoogleMap
+      renderGoogleMap();
+
+      // Obtain GPS information
+      obtainGeolocationData();
 
       // TODO: Render markers
-      console.log(apiService);
     });
 
     // Prevent trigger of history back
