@@ -2,9 +2,13 @@
   var entranceController = function(
     $state,
     $scope,
-    $stateParams,
+    $ionicPlatform,
     popupService
   ) {
+    $ionicPlatform.registerBackButtonAction(function() {
+      ionic.Platform.exitApp();
+    }, 100);
+
     $scope.jumpToMashup = function() {
       $state.transitionTo("tab.mashup");
     };
