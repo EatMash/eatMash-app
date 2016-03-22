@@ -46,8 +46,7 @@
 
     $document.ready(function() {
       if (!navigator.geolocation) {
-        // TODO
-        // Notify users that this app cannot work
+        popupService.geoNotFoundPopup();
       }
 
       // Render GoogleMap
