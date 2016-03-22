@@ -4,7 +4,6 @@
     $state,
     $rootScope,
     $ionicPlatform,
-    $ionicPopup,
     $document,
     apiService,
     popupService
