@@ -34,6 +34,9 @@
       }, function(err) {
         popupService.geoErrorPopup();
         console.log(err);
+      }, {
+        enableHighAccuracy: true,
+        timeout: 5000
       });
     };
 
