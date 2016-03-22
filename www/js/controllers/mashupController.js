@@ -6,7 +6,8 @@
     $ionicPlatform,
     $ionicPopup,
     $document,
-    apiService
+    apiService,
+    popupService
   ) {
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
@@ -25,24 +26,13 @@
       });
     };
 
-    var geoErrorPopup = function() {
-      var ERROR_TEXT =
-        "Failed to obtain geolocation data. "+
-        "Please check if the GPS is turned on";
-
-      $ionicPopup.alert({
-        title: "Error",
-        template: ERROR_TEXT
-      });
-    };
-
     var obtainGeolocationData = function() {
       navigator.geolocation.getCurrentPosition(function(pos) {
         var currentPosition =
           new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(currentPosition);
       }, function(err) {
-        geoErrorPopup();
+        popupService.geoErrorPopup();
         console.log(err);
       });
     };
