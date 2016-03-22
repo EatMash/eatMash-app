@@ -3,7 +3,6 @@
     $scope,
     $state,
     $rootScope,
-    $document,
     $ionicPlatform,
     apiService
   ) {
