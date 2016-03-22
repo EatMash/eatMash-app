@@ -66,6 +66,23 @@ ion-view {
       height: 50%;
       background-color: gainsboro;
     }
+
+    .mashup-items-area {
+      height: 50%;
+
+      ion-list, ion-list > .list {
+        height: 100%;
+      }
+
+      ion-item.item {
+        height: 33.7%;
+      }
+
+      .place-image {
+        float: left;
+        height: 100%;
+      }
+    }
   }
 }
 

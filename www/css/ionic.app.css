@@ -9752,6 +9752,16 @@ ion-view ion-content #map {
   height: 50%;
   background-color: gainsboro; }
 
+ion-view ion-content .mashup-items-area {
+  height: 50%; }
+  ion-view ion-content .mashup-items-area ion-list, ion-view ion-content .mashup-items-area ion-list > .list {
+    height: 100%; }
+  ion-view ion-content .mashup-items-area ion-item.item {
+    height: 33.7%; }
+  ion-view ion-content .mashup-items-area .place-image {
+    float: left;
+    height: 100%; }
+
 .center-components {
   text-align: center;
   height: 100%; }

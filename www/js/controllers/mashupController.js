@@ -9,6 +9,17 @@
     apiService,
     popupService
   ) {
+    $scope.map = null;
+    $scope.places = [];
+
+    $scope.addressStringify = function(array) {
+      var text = "";
+      for (i in array) {
+        text += (" " + array[i]);
+      }
+      return text;
+    };
+
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {
@@ -36,6 +47,7 @@
           new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
         $scope.map.setCenter(currentPosition);
       }, function(err) {
+        $ionicLoading.hide();
         popupService.geoErrorPopup();
         console.log(err);
       }, {
@@ -83,13 +95,7 @@
         );
         var rawInfoHtml = infoTemplate({
           place_name: d.name,
-          place_address: (function(){
-            var text = "";
-            for (i in d.display_address) {
-              text += (" " + d.display_address[i]);
-            }
-            return text;
-          })(),
+          place_address: $scope.addressStringify(d.display_address),
           place_phone: (function() {
             if (d.phone) {
               return '<p>' + d.phone + '</p>';
@@ -116,12 +122,17 @@
       });
     };
 
+    var setPlaceList = function(data) {
+      $scope.places = data;
+    };
+
     $document.ready(function() {
       $ionicLoading.show({
         template: "Fetching..."
       });
 
       if (!navigator.geolocation) {
+        $ionicLoading.hide();
         popupService.geoNotFoundPopup();
       }
 
@@ -135,11 +146,14 @@
       doMashup("Soma", function(isSuccess, data) {
         $ionicLoading.hide();
         if (!isSuccess) {
+          $ionicLoading.hide();
           // TODO: Alert users that app got an error in fetching API.
           return
         }
 
         console.log(data);
+
+        setPlaceList(data);
         setPlaceMarkers(data);
       });
     });
