@@ -27,11 +27,4 @@
   angular
     .module('starter', $injects)
     .run(runCallback);
-
-  // Set variables
-  angular
-    .module('starter')
-    .constant("appConfigs", {
-      API_SERVER: "http://eatmash.herokuapp.com/"
-    });
 })();

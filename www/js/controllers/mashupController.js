@@ -44,6 +44,20 @@
       });
     };
 
+    // Obtain mashup data from API server
+    var doMashup = function(query, callback) {
+      apiService.fetchMashup(query).then(function(response) {
+        callback(true, response.data);
+      }, function(callback) {
+        callback(false, []);
+      });
+    };
+
+    // Set place markers on Google Map
+    var setPlaceMarkers = function(data) {
+
+    };
+
     $document.ready(function() {
       if (!navigator.geolocation) {
         popupService.geoNotFoundPopup();
@@ -55,7 +69,15 @@
       // Obtain GPS information
       obtainGeolocationData();
 
-      // TODO: Render markers
+      // Render markers
+      doMashup(function(isSuccess, data) {
+        if (isSuccess) {
+          // TODO: Alert users that app got an error in fetching API.
+          return
+        }
+
+        setPlaceMarkers(data);
+      });
     });
 
     // Prevent trigger of history back
