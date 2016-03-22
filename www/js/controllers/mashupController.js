@@ -26,6 +26,10 @@
       });
     };
 
+    // NOTE:
+    // For Android device, we need to specifify enableHighAccuract to true
+    // in order to make it work.
+    // (Ref: http://mori-coding.blog.jp/archives/8071251.html)
     var obtainGeolocationData = function() {
       navigator.geolocation.getCurrentPosition(function(pos) {
         var currentPosition =
