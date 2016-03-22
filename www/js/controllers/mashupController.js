@@ -4,6 +4,7 @@
     $state,
     $rootScope,
     $ionicPlatform,
+    $ionicLoading,
     $document,
     apiService,
     popupService
@@ -58,6 +59,10 @@
     };
 
     $document.ready(function() {
+      $ionicLoading.show({
+        template: "Fetching..."
+      });
+
       if (!navigator.geolocation) {
         popupService.geoNotFoundPopup();
       }
@@ -69,7 +74,8 @@
       obtainGeolocationData();
 
       // Render markers
-      doMashup(function(isSuccess, data) {
+      doMashup("Soma", function(isSuccess, data) {
+        $ionicLoading.hide();
         if (isSuccess) {
           // TODO: Alert users that app got an error in fetching API.
           return
