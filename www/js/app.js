@@ -1,7 +1,7 @@
 (function() {
   var $injects = ['ionic', 'starter.controllers', 'LocalStorageModule'];
 
-  var runCallback = function($rootScope, $ionicPlatform) {
+  var runCallback = function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -15,11 +15,6 @@
       // org.apache.cordova.statusbar required
       if (window.StatusBar) {
         StatusBar.styleDefault();
-      }
-
-      // Set some variables
-      $rootScope.variables = {
-        GOOGLE_MAP_KEY: "AIzaSyBFUvGx2qh79-roeTMbdpemOpckp0OVt3A"
       }
     });
   }

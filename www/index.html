@@ -4,9 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!--
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy" content="default-src '*' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
     -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
 
     <title></title>
 
@@ -26,6 +25,17 @@
     <script src="js/controllers/favouriteController.js"></script>
     <script src="js/controllers/restaurantDetailController.js"></script>
     <script src="js/controllers/entranceController.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFUvGx2qh79-roeTMbdpemOpckp0OVt3A&callback=initHandler" async defer>
+    </script>
+
+    <script>
+      function initHandler() {
+        if (google && google.maps) {
+          console.log("Google Map API loaded.");
+        }
+      }
+    </script>
   </head>
 
   <body ng-app="starter">
