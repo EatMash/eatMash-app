@@ -4,7 +4,8 @@
     $state,
     $rootScope,
     $document,
-    $ionicPlatform
+    $ionicPlatform,
+    apiService
   ) {
     $document.ready(function() {
       var mapRenderArea = $("#map").get(0);
@@ -27,6 +28,7 @@
       //
       // TODO: Render markers
       //
+      console.log(apiService);
     });
 
     // Prevent trigger of history back
