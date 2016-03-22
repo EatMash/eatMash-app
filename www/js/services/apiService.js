@@ -1,7 +1,7 @@
 (function() {
   var apiService = function($http) {
     var MASHUP_AMOUNT = 3;
-    var MASHUP_MINRAT = 5;
+    var MASHUP_MINRAT = 3;
 
     var mashup = function(query) {
       return $http({
