@@ -9767,6 +9767,8 @@ ion-view ion-content .mashup-items-area {
     ion-view ion-content .mashup-items-area ion-item.item p .icon.ion-navigate {
       color: orange;
       margin-right: 5px; }
+    ion-view ion-content .mashup-items-area ion-item.item:hover {
+      background-color: #F2F2F2; }
   ion-view ion-content .mashup-items-area .place-image {
     float: left;
     height: 100%;

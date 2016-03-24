@@ -91,6 +91,10 @@ ion-view {
           color: orange;
           margin-right: 5px;
         }
+
+        &:hover {
+          background-color: #F2F2F2;
+        }
       }
 
       .place-image {

@@ -4,7 +4,7 @@
     </div>
     <div class="mashup-items-area">
       <ion-list>
-        <ion-item ng-repeat="place in places">
+        <ion-item ng-repeat="place in places" ng-click="focusMarker(place)">
           <img class="place-image" ng-src="{{ place.image_url }}" />
           <span class="description">
             <h2>

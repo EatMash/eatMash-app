@@ -11,6 +11,7 @@
   ) {
     $scope.map = null;
     $scope.places = [];
+    $scope.markersData = [];
 
     $scope.addressStringify = function(array) {
       var text = "";
@@ -19,6 +20,11 @@
       }
       return text;
     };
+
+    $scope.focusMarker = function(place) {
+      (_.find($scope.markersData, function(d) { return d.id === place.uuid; }))
+        && marker.focus();
+    }
 
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
@@ -72,6 +78,8 @@
         return;
       }
 
+      $scope.markersData.length = 0;
+
       var posInfo = { lat: null, lng: null };
       data.forEach(function(d) {
         posInfo.lat = d.coordinate.latitude;
@@ -116,8 +124,16 @@
           title: d.name
         });
 
-        marker.addListener('click', function() {
+        var focusMarker = function() {
           info.open($scope.map, marker);
+        };
+
+        marker.addListener('click', focusMarker);
+
+        $scope.markersData.push({
+          id: d.uuid,
+          marker: marker,
+          focus: focusMarker
         });
       });
     };
