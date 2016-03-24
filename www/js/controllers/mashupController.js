@@ -158,7 +158,7 @@
 
     $document.ready(function() {
       $ionicLoading.show({
-        template: "Fetching..."
+        templateUrl: "mashupPopup.html"
       });
 
       if (!navigator.geolocation) {
