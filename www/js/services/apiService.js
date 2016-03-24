@@ -5,8 +5,7 @@
 
     var productionApiHost =
       (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) ?
-      "http://eatmash.herokuapp.com" :
-      "";
+      "http://eatmash.herokuapp.com" : "";
 
     var mashup = function(query) {
       return $http({

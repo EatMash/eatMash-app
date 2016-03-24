@@ -81,6 +81,7 @@
       apiService.fetchMashup(query).then(function(response) {
         callback(true, response.data);
       }, function(callback) {
+        popupService.netErrorPopup();
         callback(false, []);
       });
     };

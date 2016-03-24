@@ -9,6 +9,9 @@
     "you the most!</p>";
   var GEO_NOT_FOUND =
     "<p>Failed to initiate geolocation interface on your device.</p>";
+  var NET_ERROR =
+    "<p>Failed to fetch mashups from the server. "+
+    "Please make sure if your internet connection is alive.</p>";
 
   var popupService = function($ionicPopup) {
     var howto = function() {
@@ -30,7 +33,14 @@
         title: "<p><b>Error</b></p>",
         template: GEO_NOT_FOUND
       });
-    }
+    };
+
+    var networkError = function() {
+      return $ionicPopup.alert({
+        title: "<p><b>Network Error</b></p>",
+        template: NET_ERROR
+      });
+    };
 
     return {
       howtoPopup: function() {
@@ -41,6 +51,9 @@
       },
       geoNotFoundPopup: function() {
         return geoNotFound();
+      },
+      netErrorPopup: function() {
+        return networkError();
       }
     };
   };
