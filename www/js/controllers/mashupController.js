@@ -27,6 +27,19 @@
       marker && marker.focus();
     }
 
+    $scope.isBreakfast = function(i) { return (i === 0); };
+    $scope.isLunch = function(i) { return (i === 1); };
+    $scope.isDinner = function(i) { return (i === 2); };
+
+    $scope.mealTypeString = function(i) {
+      switch (i) {
+        case 0: return "Breakfast";
+        case 1: return "Lunch";
+        case 2: return "Dinner";
+        default:;
+      }
+    }
+
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {

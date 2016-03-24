@@ -75,7 +75,12 @@ ion-view {
       }
 
       ion-item.item {
+        padding: 10px;
         height: 33.7%;
+
+        p i.meal-type-icon {
+          margin: 0 4px 0 3px;
+        }
 
         h2 {
           font-family: 'Montserrat', helvatica;

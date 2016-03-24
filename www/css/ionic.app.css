@@ -9757,7 +9757,10 @@ ion-view ion-content .mashup-items-area {
   ion-view ion-content .mashup-items-area ion-list, ion-view ion-content .mashup-items-area ion-list > .list {
     height: 100%; }
   ion-view ion-content .mashup-items-area ion-item.item {
+    padding: 10px;
     height: 33.7%; }
+    ion-view ion-content .mashup-items-area ion-item.item p i.meal-type-icon {
+      margin: 0 4px 0 3px; }
     ion-view ion-content .mashup-items-area ion-item.item h2 {
       font-family: 'Montserrat', helvatica; }
       ion-view ion-content .mashup-items-area ion-item.item h2 .icon.ion-location {
