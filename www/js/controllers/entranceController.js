@@ -10,7 +10,7 @@
     }, 100);
 
     $scope.jumpToMashup = function() {
-      $state.transitionTo("tab.mashup");
+      $state.transitionTo("tab.mashup", {}, { reload: true });
     };
 
     $scope.showHowtoPopup = function() {
