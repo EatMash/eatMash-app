@@ -22,8 +22,9 @@
     };
 
     $scope.focusMarker = function(place) {
-      (_.find($scope.markersData, function(d) { return d.id === place.uuid; }))
-        && marker.focus();
+      var marker =
+        _.find($scope.markersData, function(d) { return d.id === place.uuid; });
+      marker && marker.focus();
     }
 
     var renderGoogleMap = function() {
