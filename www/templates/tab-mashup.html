@@ -7,8 +7,14 @@
         <ion-item ng-repeat="place in places">
           <img class="place-image" ng-src="{{ place.image_url }}" />
           <span class="description">
-            <h2>{{ place.name }}</h2>
-            <h4>{{ addressStringify(place.display_address) }}</h4>
+            <h2>
+              <i class="icon ion-location"></i>
+              {{ place.name }}
+            </h2>
+            <p>
+              <i class="icon ion-navigate"></i>
+              {{ addressStringify(place.display_address) }}
+            </p>
           </span>
         </ion-item>
       </ion-list>

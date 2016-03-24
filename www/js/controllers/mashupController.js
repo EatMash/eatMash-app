@@ -143,7 +143,7 @@
       obtainGeolocationData();
 
       // Render markers
-      doMashup("Soma", function(isSuccess, data) {
+      doMashup("soma", function(isSuccess, data) {
         $ionicLoading.hide();
         if (!isSuccess) {
           $ionicLoading.hide();

@@ -76,11 +76,27 @@ ion-view {
 
       ion-item.item {
         height: 33.7%;
+
+        h2 {
+          font-family: 'Montserrat', helvatica;
+
+          .icon.ion-location {
+            font-weight: bold;
+            margin: 0 5px 0 3px;
+            color: red;
+          }
+        }
+
+        p .icon.ion-navigate {
+          color: orange;
+          margin-right: 5px;
+        }
       }
 
       .place-image {
         float: left;
         height: 100%;
+        margin-right: 10px;
       }
     }
   }

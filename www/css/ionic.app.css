@@ -9758,9 +9758,19 @@ ion-view ion-content .mashup-items-area {
     height: 100%; }
   ion-view ion-content .mashup-items-area ion-item.item {
     height: 33.7%; }
+    ion-view ion-content .mashup-items-area ion-item.item h2 {
+      font-family: 'Montserrat', helvatica; }
+      ion-view ion-content .mashup-items-area ion-item.item h2 .icon.ion-location {
+        font-weight: bold;
+        margin: 0 5px 0 3px;
+        color: red; }
+    ion-view ion-content .mashup-items-area ion-item.item p .icon.ion-navigate {
+      color: orange;
+      margin-right: 5px; }
   ion-view ion-content .mashup-items-area .place-image {
     float: left;
-    height: 100%; }
+    height: 100%;
+    margin-right: 10px; }
 
 .center-components {
   text-align: center;
