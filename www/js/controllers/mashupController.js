@@ -81,7 +81,6 @@
       apiService.fetchMashup(query).then(function(response) {
         callback(true, response.data);
       }, function(callback) {
-        popupService.netErrorPopup();
         callback(false, []);
       });
     };
@@ -176,9 +175,9 @@
       // Render markers
       doMashup("soma", function(isSuccess, data) {
         $ionicLoading.hide();
+
         if (!isSuccess) {
-          $ionicLoading.hide();
-          // TODO: Alert users that app got an error in fetching API.
+          popupService.netErrorPopup();
           return
         }
 
