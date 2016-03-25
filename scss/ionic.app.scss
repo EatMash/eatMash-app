@@ -67,6 +67,35 @@ ion-view {
       background-color: gainsboro;
     }
 
+    .float-icon-area {
+      position: absolute;
+      height: 54px;
+      top: 40%;
+      right: 0;
+      padding: 0 5px 0 5px;
+
+      .float-icon {
+        height: 53px;
+        width: 55px;
+        float: right;
+        margin: 0 5px 0 5px;
+        border-radius: 50%;
+        background-color: orange;
+        text-align: center;
+        box-shadow: 3px 3px 7px 3px rgba(153, 153, 153, 1);
+
+        &:hover {
+          background-color: rgba(228, 148, 0, 1);
+        }
+
+        i.icon {
+          color: rgba(0, 0, 0, 0.5);
+          font-size: 35px;
+          line-height: 1.5;
+        }
+      }
+    }
+
     .mashup-items-area {
       height: 50%;
 
