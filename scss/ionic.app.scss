@@ -122,6 +122,16 @@ ion-view {
         padding: 10px;
         height: 33.7%;
 
+        .description {
+          p {
+            font-size: 2.1vh;
+          }
+
+          h2 {
+            font-size: 2.5vh;
+          }
+        }
+
         p i.meal-type-icon {
           margin: 0 4px 0 3px;
         }

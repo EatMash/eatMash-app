@@ -9788,6 +9788,10 @@ ion-view ion-content .mashup-items-area {
   ion-view ion-content .mashup-items-area ion-item.item {
     padding: 10px;
     height: 33.7%; }
+    ion-view ion-content .mashup-items-area ion-item.item .description p {
+      font-size: 2.1vh; }
+    ion-view ion-content .mashup-items-area ion-item.item .description h2 {
+      font-size: 2.5vh; }
     ion-view ion-content .mashup-items-area ion-item.item p i.meal-type-icon {
       margin: 0 4px 0 3px; }
     ion-view ion-content .mashup-items-area ion-item.item h2 {
