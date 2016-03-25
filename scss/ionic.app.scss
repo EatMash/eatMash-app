@@ -70,9 +70,10 @@ ion-view {
     .float-icon-area {
       position: absolute;
       height: 54px;
-      top: 40%;
+      bottom: 50%;
       right: 0;
       padding: 0 5px 0 5px;
+      margin: 0 5px 10px 0;
 
       .float-icon {
         height: 53px;

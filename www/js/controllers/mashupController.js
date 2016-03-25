@@ -40,6 +40,14 @@
       }
     }
 
+    $scope.mashupAgain = function() {
+
+    };
+
+    $scope.mashupConfirm = function() {
+
+    };
+
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {
