@@ -4,13 +4,13 @@
     var MASHUP_MINRAT = 3;
 
     var productionApiHost =
-      (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) ?
+      (!!window.cordova) ?
       "http://eatmash.herokuapp.com" : "";
 
     var mashup = function(query) {
       return $http({
         method: "GET",
-        url: "/api",
+        url: productionApiHost + "/api",
         params: {
           location: query,
           minrat: MASHUP_MINRAT,
@@ -22,7 +22,7 @@
     var mashupAgain = function(query, current_mashups) {
       return $http({
         method: "POST",
-        url: "/api/new",
+        url: productionApiHost + "/api/new",
         data: {
           location: query,
           minimum_rating: MASHUP_MINRAT,
@@ -34,7 +34,7 @@
     var confirm = function(current_mashups) {
       return $http({
         method: "POST",
-        url: "/api/confirm",
+        url: productionApiHost + "/api/confirm",
         data: {
           uuids: current_mashups
         }

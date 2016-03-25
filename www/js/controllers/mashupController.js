@@ -6,6 +6,7 @@
     $ionicPlatform,
     $ionicLoading,
     $document,
+    $timeout,
     apiService,
     popupService
   ) {
@@ -64,10 +65,14 @@
       apiService.mashupAgain($scope.placeName, uuids)
         .success(function(data) {
           $ionicLoading.hide();
+
+          // TODO Handling for no dat result
+
           setPlaceList(data);
           setPlaceMarkers(data);
         }).error(function(response) {
-          // TODO Error handling
+          $ionicLoading.hide();
+          popupService.netErrorPopup();
         });
     };
 
@@ -120,6 +125,7 @@
     // ----------------------------------------------------------
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
+
       $scope.map = new google.maps.Map(mapRenderArea, {
         styles: [
           {
@@ -227,17 +233,23 @@
         popupService.geoNotFoundPopup();
       }
 
-      // Render GoogleMap
-      renderGoogleMap();
-
-      // Obtain GPS information
-      obtainGeolocationData();
+      // Render GoogleMap and obtain GPS information
+      $timeout(function() {
+        if (!$scope.map) {
+          renderGoogleMap();
+          obtainGeolocationData();
+          google.maps.event.trigger($scope.map, 'resize');
+        }
+      }, 1000);
 
       // Obtain mashup data from API server
       $scope.placeName = $state.params.place;
       apiService.fetchMashup($scope.placeName)
         .success(function(data) {
           $ionicLoading.hide();
+
+          // TODO Handling for no data result
+
           setPlaceList(data);
           setPlaceMarkers(data);
         }).error(function(response) {
