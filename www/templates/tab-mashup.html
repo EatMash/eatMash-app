@@ -19,24 +19,26 @@
       <ion-list>
         <ion-item ng-repeat="place in places track by $index" ng-click="focusMarker(place)">
           <img class="place-image" ng-src="{{ place.image_url }}" />
-          <span class="description">
-            <p>
-              <i class="icon meal-type-icon"
-                ng-class="
-                  { 'ion-ios-sunny': isBreakfast($index),
-                    'ion-coffee': isLunch($index),
-                    'ion-ios-moon': isDinner($index) }"></i>
-              {{ mealTypeString($index) }}
-            </p>
-            <h2>
-              <i class="icon ion-location"></i>
-              {{ place.name }}
-            </h2>
-            <p>
-              <i class="icon ion-navigate"></i>
-              {{ addressStringify(place.display_address) }}
-            </p>
-          </span>
+          <div class="description">
+            <div class="texts">
+              <p>
+                <i class="icon meal-type-icon"
+                  ng-class="
+                    { 'ion-ios-sunny': isBreakfast($index),
+                      'ion-coffee': isLunch($index),
+                      'ion-ios-moon': isDinner($index) }"></i>
+                {{ mealTypeString($index) }}
+              </p>
+              <h2>
+                <i class="icon ion-location"></i>
+                {{ place.name }}
+              </h2>
+              <p>
+                <i class="icon ion-navigate"></i>
+                {{ addressStringify(place.display_address) }}
+              </p>
+            </div>
+          </div>
         </ion-item>
       </ion-list>
     </div>
