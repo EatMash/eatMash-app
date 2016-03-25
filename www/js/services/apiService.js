@@ -36,7 +36,7 @@
         method: "POST",
         url: "/api/confirm",
         data: {
-          uuid: current_mashups
+          uuids: current_mashups
         }
       });
     };
