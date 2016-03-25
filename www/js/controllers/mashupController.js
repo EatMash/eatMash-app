@@ -12,6 +12,7 @@
     $scope.map = null;
     $scope.places = [];
     $scope.markersData = [];
+    $scope.isMashupConfirmed = false;
 
     $scope.addressStringify = function(array) {
       var text = "";
@@ -66,7 +67,7 @@
 
       apiService.mashupConfirm(uuids)
         .success(function(response) {
-          // TODO Handle success
+          $scope.isMashupConfirmed = true;
         }).error(function(response) {
           // TODO Handle error
         });

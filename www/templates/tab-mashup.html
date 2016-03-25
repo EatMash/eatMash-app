@@ -8,7 +8,10 @@
         <i class="icon ion-loop"></i>
       </div>
       <div class="float-icon" id="mashup-confirm" ng-click="mashupConfirm()">
-        <i class="icon ion-ios-checkmark-empty"></i>
+        <i class="icon"
+          ng-class="
+            { 'ion-ios-checkmark-empty': !isMashupConfirmed,
+              'ion-ios-checkmark': isMashupConfirmed }"></i>
       </div>
     </div>
 
