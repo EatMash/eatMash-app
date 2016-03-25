@@ -3,14 +3,16 @@
     var MASHUP_AMOUNT = 3;
     var MASHUP_MINRAT = 3;
 
+    /*
     var productionApiHost =
       (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) ?
       "http://eatmash.herokuapp.com" : "";
+    */
 
     var mashup = function(query) {
       return $http({
         method: "GET",
-        url: productionApiHost + "/api",
+        url: "/api",
         params: {
           location: query,
           minrat: MASHUP_MINRAT,
