@@ -10,7 +10,11 @@
     }, 100);
 
     $scope.jumpToMashup = function() {
-      $state.transitionTo("tab.mashup", {}, { reload: true });
+      popupService.placePromptPopup(function(text) {
+        if (text) {
+          $state.go("tab.mashup", { place: text });
+        }
+      });
     };
 
     $scope.showHowtoPopup = function() {

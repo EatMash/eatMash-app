@@ -61,7 +61,7 @@
 
       popupService.showMashupPopup();
 
-      apiService.mashupAgain("soma", uuids)
+      apiService.mashupAgain($scope.placeName, uuids)
         .success(function(data) {
           $ionicLoading.hide();
           setPlaceList(data);
@@ -215,6 +215,11 @@
     // document.onLoad handler
     // -----------------------
     $document.ready(function() {
+      if (!$state.params.place) {
+        $state.go("entrance");
+        return;
+      }
+
       popupService.showMashupPopup();
 
       if (!navigator.geolocation) {
@@ -229,7 +234,8 @@
       obtainGeolocationData();
 
       // Obtain mashup data from API server
-      apiService.fetchMashup("soma")
+      $scope.placeName = $state.params.place;
+      apiService.fetchMashup($scope.placeName)
         .success(function(data) {
           $ionicLoading.hide();
           setPlaceList(data);

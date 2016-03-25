@@ -21,6 +21,21 @@
       });
     };
 
+    var placePrompt = function(callback) {
+      return $ionicPopup.prompt({
+        title: "Where you now at?",
+        template: '<input type="text" id="placename" />',
+        subTitle: 'Name of city, town, district, etc...',
+        buttons: [
+          { text: "Go!",
+            type: "button-assertive",
+            onTap: function(e) {
+              callback($("#placename").val());
+            } }
+        ]
+      });
+    };
+
     var mashup = function() {
       return $ionicLoading.show({
         templateUrl: "mashupPopup.html"
@@ -51,6 +66,9 @@
     return {
       howtoPopup: function() {
         return howto();
+      },
+      placePromptPopup: function(callback) {
+        return placePrompt(callback);
       },
       showMashupPopup: function() {
         return mashup();

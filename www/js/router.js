@@ -37,6 +37,7 @@
       })
       .state('tab.mashup', {
         url: '/mashup',
+        params: { 'place': null },
         views: { 'tab-mashup': tabViews.mashup }
       })
       .state('tab.feed', {
