@@ -59,6 +59,20 @@ body {
   }
 }
 
+.popup {
+  .popup-head {
+    h3.popup-title, h5.popup-sub-title {
+      font-family: 'Montserrat', helvatica;
+    }
+  }
+
+  .popup-body {
+    input, .popup-buttons > button {
+      font-family: 'Montserrat', helvatica;
+    }
+  }
+}
+
 ion-view {
   ion-content {
     #map {

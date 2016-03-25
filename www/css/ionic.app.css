@@ -9747,6 +9747,12 @@ body {
   body.platform-ios .has-tabs {
     bottom: 55px; }
 
+.popup .popup-head h3.popup-title, .popup .popup-head h5.popup-sub-title {
+  font-family: 'Montserrat', helvatica; }
+
+.popup .popup-body input, .popup .popup-body .popup-buttons > button {
+  font-family: 'Montserrat', helvatica; }
+
 ion-view ion-content #map {
   width: 100%;
   height: 50%;
