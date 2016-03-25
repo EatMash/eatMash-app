@@ -9,10 +9,8 @@
     "www/**/*",
     "!www/lib/**/*"
   ],
-  "proxies": [
-    {
-      "path": "/api",
-      "proxyUrl": "http://eatmash.herokuapp.com/api"
-    }
-  ]
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "http://eatmash.herokuapp.com/api"
+  }]
 }

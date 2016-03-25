@@ -41,11 +41,35 @@
     }
 
     $scope.mashupAgain = function() {
+      var uuids = []
 
+      $scope.places.forEach(function(place) {
+        uuids.push(place.uuid);
+      });
+
+      /*
+      apiService.mashupAgain(query, uuids)
+        .success(function(response) {
+          // Success handling
+        }).error(function(response) {
+          // Error handling
+        });
+      */
     };
 
     $scope.mashupConfirm = function() {
+      var uuids = []
 
+      $scope.places.forEach(function(place) {
+        uuids.push(place.uuid);
+      });
+
+      apiService.mashupConfirm(uuids)
+        .success(function(response) {
+          // TODO Handle success
+        }).error(function(response) {
+          // TODO Handle error
+        });
     };
 
     var renderGoogleMap = function() {
