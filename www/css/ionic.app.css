@@ -9768,7 +9768,7 @@ ion-view ion-content .float-icon-area {
     background-color: orange;
     text-align: center;
     box-shadow: 3px 3px 7px 3px #999999; }
-    ion-view ion-content .float-icon-area .float-icon:hover {
+    ion-view ion-content .float-icon-area .float-icon:active {
       background-color: #e49400; }
     ion-view ion-content .float-icon-area .float-icon i.icon {
       color: rgba(0, 0, 0, 0.5);

@@ -13,13 +13,19 @@
     "<p>Failed to fetch mashups from the server. "+
     "Please make sure if your internet connection is alive.</p>";
 
-  var popupService = function($ionicPopup) {
+  var popupService = function($ionicPopup, $ionicLoading) {
     var howto = function() {
       return $ionicPopup.alert({
         title: "<p><b>How this work</b></p>",
         template: HOW_THIS_WORK
       });
     };
+
+    var mashup = function() {
+      return $ionicLoading.show({
+        templateUrl: "mashupPopup.html"
+      });
+    }
 
     var geoError = function() {
       return $ionicPopup.alert({
@@ -45,6 +51,9 @@
     return {
       howtoPopup: function() {
         return howto();
+      },
+      showMashupPopup: function() {
+        return mashup();
       },
       geoErrorPopup: function() {
         return geoError();

@@ -41,6 +41,9 @@
       }
     }
 
+    // ------------------------------------------
+    // mashupAgain - handler for re-mashup button
+    // ------------------------------------------
     $scope.mashupAgain = function() {
       var uuids = []
 
@@ -48,17 +51,34 @@
         uuids.push(place.uuid);
       });
 
-      /*
-      apiService.mashupAgain(query, uuids)
-        .success(function(response) {
-          // Success handling
+      $scope.markersData.forEach(function(data) {
+        data.marker.setMap(null);
+      });
+
+      $scope.places = [];
+      $scope.markersData = [];
+      $scope.isMashupConfirmed = false;
+
+      popupService.showMashupPopup();
+
+      apiService.mashupAgain("soma", uuids)
+        .success(function(data) {
+          $ionicLoading.hide();
+          setPlaceList(data);
+          setPlaceMarkers(data);
         }).error(function(response) {
-          // Error handling
+          // TODO Error handling
         });
-      */
     };
 
+    // -------------------------------------------------------
+    // mashupConfirm - event handler for mashup confirm button
+    // -------------------------------------------------------
     $scope.mashupConfirm = function() {
+      if ($scope.isMashupConfirmed) {
+        return;
+      }
+
       var uuids = []
 
       $scope.places.forEach(function(place) {
@@ -73,6 +93,31 @@
         });
     };
 
+    // --------------------------------------------------------------
+    // obtainGeolocationData - fetch geolocational data of the device
+    // --------------------------------------------------------------
+    //
+    // NOTE: For Android device, we need to specifify enableHighAccuract
+    // to true in order to make it work.
+    // (Ref: http://mori-coding.blog.jp/archives/8071251.html)
+    var obtainGeolocationData = function() {
+      navigator.geolocation.getCurrentPosition(function(pos) {
+        var currentPosition =
+          new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+        $scope.map.setCenter(currentPosition);
+      }, function(err) {
+        $ionicLoading.hide();
+        popupService.geoErrorPopup();
+        console.log(err);
+      }, {
+        enableHighAccuracy: true,
+        timeout: 5000
+      });
+    };
+
+    // ----------------------------------------------------------
+    // renderGoogleMap - Google Map rendering with Javascript SDK
+    // ----------------------------------------------------------
     var renderGoogleMap = function() {
       var mapRenderArea = $("#map").get(0);
       $scope.map = new google.maps.Map(mapRenderArea, {
@@ -90,35 +135,9 @@
       });
     };
 
-    // NOTE:
-    // For Android device, we need to specifify enableHighAccuract to true
-    // in order to make it work.
-    // (Ref: http://mori-coding.blog.jp/archives/8071251.html)
-    var obtainGeolocationData = function() {
-      navigator.geolocation.getCurrentPosition(function(pos) {
-        var currentPosition =
-          new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-        $scope.map.setCenter(currentPosition);
-      }, function(err) {
-        $ionicLoading.hide();
-        popupService.geoErrorPopup();
-        console.log(err);
-      }, {
-        enableHighAccuracy: true,
-        timeout: 5000
-      });
-    };
-
-    // Obtain mashup data from API server
-    var doMashup = function(query, callback) {
-      apiService.fetchMashup(query).then(function(response) {
-        callback(true, response.data);
-      }, function(callback) {
-        callback(false, []);
-      });
-    };
-
-    // Set place markers on Google Map
+    // -------------------------------------------------
+    // setPlaceMarkers - Set place markers on Google Map
+    // -------------------------------------------------
     var setPlaceMarkers = function(data) {
       if (!data.length) {
         // TODO: Alert users that app couldnt mash up any restaurants
@@ -185,14 +204,18 @@
       });
     };
 
+    // -----------------------------------------
+    // setPlaceList - set data for place listing
+    // -----------------------------------------
     var setPlaceList = function(data) {
       $scope.places = data;
     };
 
+    // -----------------------
+    // document.onLoad handler
+    // -----------------------
     $document.ready(function() {
-      $ionicLoading.show({
-        templateUrl: "mashupPopup.html"
-      });
+      popupService.showMashupPopup();
 
       if (!navigator.geolocation) {
         $ionicLoading.hide();
@@ -205,20 +228,16 @@
       // Obtain GPS information
       obtainGeolocationData();
 
-      // Render markers
-      doMashup("soma", function(isSuccess, data) {
-        $ionicLoading.hide();
-
-        if (!isSuccess) {
+      // Obtain mashup data from API server
+      apiService.fetchMashup("soma")
+        .success(function(data) {
+          $ionicLoading.hide();
+          setPlaceList(data);
+          setPlaceMarkers(data);
+        }).error(function(response) {
+          $ionicLoading.hide();
           popupService.netErrorPopup();
-          return
-        }
-
-        console.log(data);
-
-        setPlaceList(data);
-        setPlaceMarkers(data);
-      });
+        });
     });
 
     // Prevent trigger of history back

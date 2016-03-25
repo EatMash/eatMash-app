@@ -46,7 +46,7 @@
         return mashup(data);
       },
       mashupAgain: function(query, current_mashups) {
-        return mashupAgain(query, current_masups);
+        return mashupAgain(query, current_mashups);
       },
       mashupConfirm: function(current_mashups) {
         return confirm(current_mashups);
