@@ -11,6 +11,6 @@
   ],
   "proxies": [{
     "path": "/api",
-    "proxyUrl": "http://localhost:3000/api"
+    "proxyUrl": "http://eatmash.herokuapp.com/api"
   }]
 }
